@@ -5,7 +5,7 @@ Resources:
   HelloJuliaFunction:
     Type: 'AWS::Serverless::Function'
     Properties:
-      Handler: word_count.handler
+      Handler: hello.handler
       Runtime: provided
       CodeUri: ./src
       Description: ''
