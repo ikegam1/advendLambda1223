@@ -22,7 +22,7 @@ function handler(event_data::InvocationRequest)
 
 	i_am_good = true
 	if i_am_good
-		return success_invocation_response("""{"msg": "Me Rockz!"}""", "application/json")
+		return success_invocation_response("""{"msg": "Merry X'mas !!"}""", "application/json")
 	else
 		return failure_invocation_response("Me Suckz!", "some_error_type")
 	end
