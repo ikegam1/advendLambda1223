@@ -5,7 +5,7 @@
 # - https://juliacloud.github.io/AWSCore.jl/build/AWSS3.html
 # - https://github.com/JuliaCloud/AWSS3.jl
 
-module word_count
+module hello
 
 using AWSLambdaJuliaRuntime
 using AWSS3
@@ -28,4 +28,4 @@ function handler(event_data::InvocationRequest)
 	end
 end
 
-end # module word_count
+end # module hello
