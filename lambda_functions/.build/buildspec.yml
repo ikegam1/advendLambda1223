@@ -1,0 +1,19 @@
+version: 0.2
+
+env:
+  variables:
+    AWS_DEFAULT_REGION: "ap-northeast-1"
+    REPOSITORY_NAME: "adventLambda1223"
+phases:
+  install:
+    runtime-versions:
+      docker: 18
+    commands:
+      - echo install  started on `date`
+      - pip install --upgrade awscli
+  pre_build:
+    commands:
+      - echo Started build for last commit $CODEBUILD_RESOLVED_SOURCE_VERSION
+  build:
+    commands:
+      - /bin/bash lambda_functions/.build/build.sh

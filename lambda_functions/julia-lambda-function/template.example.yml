@@ -1,0 +1,15 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: 'AWS::Serverless-2016-10-31'
+Description: An AWS Serverless Specification template describing your function.
+Resources:
+  HelloJuliaFunction:
+    Type: 'AWS::Serverless::Function'
+    Properties:
+      Handler: word_count.handler
+      Runtime: provided
+      CodeUri: ./src
+      Description: ''
+      MemorySize: 512
+      Timeout: 30
+      Layers:
+        - 'arn:aws:lambda:ap-northeast-1:11111111:layer:JuliaLayer:1'
