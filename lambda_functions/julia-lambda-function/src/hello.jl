@@ -1,4 +1,4 @@
-# Example julia lambda function
+mple julia lambda function
 # Couting words in a file in S3 path
 
 # See following resources for S3 in julia
