@@ -10,6 +10,7 @@ module hello
 using AWSLambdaJuliaRuntime
 using AWSS3
 using AWSCore
+import JSON
 
 #= The handler function =#
 function handler(event_data::InvocationRequest)
@@ -18,14 +19,15 @@ function handler(event_data::InvocationRequest)
 	# put result back to S3 path or send in response
 
 	println("Hello World : $(event_data.payload)")
+	j = JSON.parse(event_data.payload)
 	run(`ls`)
 
-	i_am_good = true
-	if i_am_good
-		return success_invocation_response("""{"msg": "Me Rockz!"}""", "application/json")
+	if haskey(j, "queryStringParameters")
+		return success_invocation_response("""{"statusCode": 200, "body": "Merry X'mas $(j["queryStringParameters"]["msg"])"}""", "application/json")
 	else
 		return failure_invocation_response("Me Suckz!", "some_error_type")
 	end
 end
 
 end # module hello
+
